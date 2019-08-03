@@ -31,7 +31,7 @@ Input::make('name')
 ``` 
  
 
-> Notice many methods such as `canSee`,` equired`, `title`,` help`, `vertical`,` horizontal`; and many others, are available in almost every `field` system and are optional
+> Notice many methods such as `canSee`,` required`, `title`,` help`, `vertical`,` horizontal`; and many others, are available in almost every `field` system and are optional
  
 One of the most universal fields due to the type indication, almost all `html` values ​​are supported:
 
@@ -435,6 +435,7 @@ for example, take only active:
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Idea extends Model
 {
@@ -446,7 +447,7 @@ class Idea extends Model
      */
     public function scopeActive(Builder $query)
     {
-        return $query->where('active', true);
+        return $query->where('active', true)->get();
     }
 }
 ```
